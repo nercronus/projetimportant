@@ -5,15 +5,14 @@
  */
 package StreamingWeb.dao;
 
-import StreamingWeb.Servlet.FilmsServlet;
-import StreamingWeb.entity.Film;
+import StreamingWeb.entity.Serie;
 import java.util.List;
+import javafx.scene.chart.XYChart;
 
 /**
  *
  * @author Formation
  */
-public interface FilmDAO {
-    public Film trouveDetailFilm(Long id);
-    public List<Film> lister();
+public interface SeriesDao {
+    public List<Serie> lister();
 }

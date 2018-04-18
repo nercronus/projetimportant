@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package StreamingWeb.dao;
+package StreamingWeb.service;
 
-import StreamingWeb.Servlet.FilmsServlet;
 import StreamingWeb.entity.Film;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
  *
  * @author Formation
  */
-public interface FilmDAO {
-    public Film trouveDetailFilm(Long id);
-    public List<Film> lister();
+public interface FilmService {
+    public Film rechercheParId(Long id);
+    public List<Film> listerFilms();
 }

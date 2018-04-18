@@ -10,7 +10,6 @@ import StreamingWeb.service.FilmService;
 import StreamingWeb.service.FilmServiceJpaImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,20 +20,21 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Formation
  */
-@WebServlet(name = "FilmsServlet", urlPatterns = {"/film"})
-public class FilmsServlet extends HttpServlet {
+@WebServlet(name = "DetailFilmServlet", urlPatterns = {"/detail_film"})
+public class DetailFilmServlet extends HttpServlet {
     
     private FilmService service = new FilmServiceJpaImpl();
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       
-        List<Film> films = service.listerFilms();
         
-        req.setAttribute("listedesFilms", films);
-        
-        req.getRequestDispatcher("films.jsp").forward(req, resp);
-        
+         String idString = req.getParameter("idFilm");
+         
+         Film film = service.rechercheParId(Long.parseLong(idString));
+         
+         req.setAttribute("film", film);
+         
+         req.getRequestDispatcher("detail_film.jsp").forward(req, resp);
     }
-    
+
 }
