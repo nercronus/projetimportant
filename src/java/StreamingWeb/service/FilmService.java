@@ -13,6 +13,7 @@ import java.util.List;
  * @author Formation
  */
 public interface FilmService {
+    public void ajouterFilm(Film f);
     public Film rechercheParId(Long id);
     public List<Film> listerFilms();
 }

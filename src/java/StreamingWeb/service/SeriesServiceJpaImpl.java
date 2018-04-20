@@ -23,5 +23,16 @@ public class SeriesServiceJpaImpl implements SeriesService{
         
         return dao.lister();
     }
-    
+
+    @Override
+    public Serie rechercheParId(long id) {
+        return dao.trouveDetailSeries(id);
+    }   
+
+    @Override
+    public Long compterNbEpisode(long id) {
+        
+        return dao.compterNbEpisodes(id);
+    }
 }
+

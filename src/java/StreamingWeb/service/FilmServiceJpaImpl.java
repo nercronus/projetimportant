@@ -29,5 +29,11 @@ public class FilmServiceJpaImpl implements FilmService{
         
         return dao.trouveDetailFilm(id);
     }
+
+    @Override
+    public void ajouterFilm(Film f) {
+        
+        dao.ajouterFilm(f);
+    }
     
 }

@@ -13,5 +13,8 @@ import java.util.List;
  * @author Formation
  */
 public interface SeriesService {
+    public Serie rechercheParId(long id);
     public List<Serie> listerSeries();
+
+    public Long compterNbEpisode(long id);
 }

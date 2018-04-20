@@ -10,7 +10,6 @@ import StreamingWeb.service.SeriesService;
 import StreamingWeb.service.SeriesServiceJpaImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,19 +20,26 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Formation
  */
-@WebServlet(name = "SeriesServlet", urlPatterns = {"/lister_series"})
-public class SeriesServlet extends HttpServlet {
-
+@WebServlet(name = "DetailSerieServlet", urlPatterns = {"/detailserie"})
+public class DetailSerieServlet extends HttpServlet {
+    
     private SeriesService service = new SeriesServiceJpaImpl();
-
+            
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      
-        List<Serie> series = service.listerSeries();
+       
+        String idString = req.getParameter("idSerie");
+        long id = Long.parseLong(idString);
         
-        req.setAttribute("listedesSeries", series);
+        Serie serie = service.rechercheParId(id);
         
-        req.getRequestDispatcher("series.jsp").forward(req, resp);
+        Long NbEpisode = service.compterNbEpisode(id);
+        
+        req.setAttribute("serie", serie);
+        
+        req.setAttribute("nbepisodes", NbEpisode);
+        
+        req.getRequestDispatcher("detailseries.jsp").forward(req, resp);
     }
-    
+        
 }

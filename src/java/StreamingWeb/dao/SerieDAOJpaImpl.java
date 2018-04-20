@@ -26,5 +26,21 @@ public class SerieDAOJpaImpl implements SeriesDao{
         return query.getResultList();
     
     }
-    
+
+    @Override
+    public Serie trouveDetailSeries(Long id) {
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        
+        return em.find(Serie.class, id);
+    }
+
+    @Override
+    public long compterNbEpisodes(long idSerie) {
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        
+        Query query = em.createQuery("select count (e) from Episode e join e.saison s join s.serie se where se.id="+idSerie);
+        
+         return (long) query.getSingleResult();
+    }
 }

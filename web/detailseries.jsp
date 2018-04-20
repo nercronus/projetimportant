@@ -1,12 +1,11 @@
 <%-- 
-    Document   : series
-    Created on : 17 avr. 2018, 16:23:03
+    Document   : detailseries
+    Created on : 19 avr. 2018, 11:59:17
     Author     : Formation
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,10 +17,18 @@
         <c:import url="_ENTETE.jsp"/>
         <c:import url="_MENU.jsp"/>
         <main>
-            <c:forEach items="${listedesSeries}" var="seriesActuel">
-                <br>  ${seriesActuel.titre}
-                 <a href="detailserie?idSerie=${seriesActuel.id}"><button>DETAILS</button></a>
+            <h1>${serie.titre}</h1>
+            <br>
+            ${serie.synopsis}
+            <br>
+            payslist:
+            <c:forEach items="${serie.paysList}" var="serieAct">
+                ${serieAct.nom}
             </c:forEach>
+            <br>
+           nbepisode:
+           ${nbepisodes}
+            
         </main>
         <c:import url="_PIED.jsp"/>
     </body>

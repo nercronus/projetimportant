@@ -16,6 +16,7 @@
     <body>
         <c:import url="_ENTETE.jsp"/>
         <c:import url="_MENU.jsp"/>
+        
         <main>
             <h1>${film.titre}</h1>
             ${film.synopsis}
@@ -29,6 +30,18 @@
             payslist:
             <c:forEach items="${film.paysList}" var="paysAct">
                 ${paysAct.nom}
+            </c:forEach>
+            <br>
+            realisateur:
+            <c:forEach items="${film.personneList}" var="personneAct">
+                ${personneAct.nom}
+                ${personneAct.prenom}
+            </c:forEach>
+            <br>
+            acteur:
+            <c:forEach items="${film.personneList1}" var="personneActt">
+                ${personneActt.nom}
+                ${personneActt.prenom}
             </c:forEach>
           
         </main>

@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Formation
  */
-@WebServlet(name = "FilmsServlet", urlPatterns = {"/film"})
+@WebServlet(name = "FilmsServlet", urlPatterns = {"/lister_films"})
 public class FilmsServlet extends HttpServlet {
     
     private FilmService service = new FilmServiceJpaImpl();

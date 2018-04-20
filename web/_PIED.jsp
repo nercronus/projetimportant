@@ -5,4 +5,5 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<br>
 <footer>&COPY; 2018 Greg</footer>

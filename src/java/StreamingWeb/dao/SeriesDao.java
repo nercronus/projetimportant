@@ -14,5 +14,7 @@ import javafx.scene.chart.XYChart;
  * @author Formation
  */
 public interface SeriesDao {
+    public long compterNbEpisodes(long idSerie);
+    public Serie trouveDetailSeries(Long id);
     public List<Serie> lister();
 }

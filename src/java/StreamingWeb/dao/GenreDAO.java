@@ -5,16 +5,16 @@
  */
 package StreamingWeb.dao;
 
-import StreamingWeb.Servlet.FilmsServlet;
-import StreamingWeb.entity.Film;
+import StreamingWeb.entity.Genre;
 import java.util.List;
 
 /**
  *
  * @author Formation
  */
-public interface FilmDAO {
-    public void ajouterFilm(Film f);
-    public Film trouveDetailFilm(Long id);
-    public List<Film> lister();
+public interface GenreDAO {
+    
+    public List<Genre> listerGenres();
+    
+    
 }
